@@ -1,0 +1,155 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shadow="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <app.mosn.library.ZDepthShadowLayout
+                android:id="@+id/shadowView_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                shadow:z_depth="z_depth1"
+                shadow:z_depth_padding="z_depth1"
+                shadow:shape="rect">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher"
+                    android:scaleType="fitXY"
+                    android:background="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TEST"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"
+                    android:background="#990000DD"
+                    android:layout_gravity="right|bottom"/>
+
+            </app.mosn.library.ZDepthShadowLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <app.mosn.library.ZDepthShadowLayout
+                android:id="@+id/shadowView_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                shadow:z_depth="z_depth1"
+                shadow:shape="rect">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher"
+                    android:scaleType="fitXY"
+                    android:background="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TEST"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"
+                    android:background="#990000DD"
+                    android:layout_gravity="right|bottom"/>
+
+            </app.mosn.library.ZDepthShadowLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <app.mosn.library.ZDepthShadowLayout
+                android:id="@+id/shadowView_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                shadow:z_depth="z_depth1"
+                shadow:shape="rect">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher"
+                    android:scaleType="fitXY"
+                    android:background="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TEST"
+                    android:textSize="12dp"
+                    android:textColor="#FFFFFF"
+                    android:background="#990000DD"
+                    android:layout_gravity="right|bottom"/>
+
+            </app.mosn.library.ZDepthShadowLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="button_1"/>
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="button_2"/>
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="button_3"/>
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="button_4"/>
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="button_5"/>
+    </LinearLayout>
+
+</RelativeLayout>
