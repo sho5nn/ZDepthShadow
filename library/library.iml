@@ -84,8 +84,6 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="tween-engine-api-sources" level="project" />
-    <orderEntry type="library" exported="" name="tween-engine-api" level="project" />
   </component>
 </module>
 
