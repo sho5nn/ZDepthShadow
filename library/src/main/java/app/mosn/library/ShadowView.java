@@ -1,34 +1,37 @@
 package app.mosn.library;
 
-import android.app.Activity;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
+
 
 import app.mosn.library.shadow.Shadow;
 import app.mosn.library.shadow.ShadowOval;
 import app.mosn.library.shadow.ShadowRect;
-import aurelienribon.tweenengine.BaseTween;
-import aurelienribon.tweenengine.Timeline;
-import aurelienribon.tweenengine.Tween;
-import aurelienribon.tweenengine.TweenCallback;
-import aurelienribon.tweenengine.TweenManager;
-import aurelienribon.tweenengine.equations.Linear;
 
 
 public class ShadowView extends View {
     protected static final String TAG = "ShadowView";
 
+    protected static final String ANIM_PROPERTY_NAME_ALPHA_ABOVE  = "alphaAbove";
+    protected static final String ANIM_PROPERTY_NAME_ALPHA_BELOW  = "alphaBelow";
+    protected static final String ANIM_PROPERTY_NAME_OFFSET_ABOVE = "offsetAbove";
+    protected static final String ANIM_PROPERTY_NAME_OFFSET_BELOW = "offsetBelow";
+    protected static final String ANIM_PROPERTY_NAME_BLUR_ABOVE   = "blurAbove";
+    protected static final String ANIM_PROPERTY_NAME_BLUR_BELOW   = "blurBelow";
+
+    protected static final int DEFAULT_ATTR_SHAPE = 0;
+    protected static final int DEFAULT_ATTR_ZDEPTH = 1;
+    protected static final int DEFAULT_ATTR_ZDEPTH_PADDING = 5;
+
     public static final int SHAPE_RECT = 0;
     public static final int SHAPE_OVAL = 1;
-
-    public static final int DEFAULT_ATTR_SHAPE = 0;
-    public static final int DEFAULT_ATTR_ZDEPTH = 1;
-    public static final int DEFAULT_ATTR_ZDEPTH_PADDING = 5;
 
     protected Shadow mShadow;
     protected ZDepthParam mZDepthParam;
@@ -38,9 +41,6 @@ public class ShadowView extends View {
     protected int mAttrZDepth;
     protected int mAttrZDepthPadding;
 
-    private TweenManager mTweenManager;
-
-    boolean isZDepthAnimating;
 
     protected ShadowView(Context context) {
         super(context);
@@ -62,9 +62,6 @@ public class ShadowView extends View {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
-
-        mTweenManager = new TweenManager();
-        Tween.registerAccessor(ZDepthParam.class, new ZDepthParamAccessor());
 
         // Load attributes
         final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadow, defStyle, 0);
@@ -195,8 +192,8 @@ public class ShadowView extends View {
         int parentHeight = (bottom - top);
 
         mShadow.setParameter(mZDepthParam,
-                0 + mZDepthPadding,
-                0 + mZDepthPadding,
+                mZDepthPadding,
+                mZDepthPadding,
                 parentWidth  - mZDepthPadding,
                 parentHeight - mZDepthPadding);
     }
@@ -207,65 +204,50 @@ public class ShadowView extends View {
         mShadow.onDraw(canvas);
     }
 
-    protected void changeZDepth(final ZDepth zDepth) {
+    protected void changeZDepth(ZDepth zDepth) {
 
-        Timeline.createParallel()
-                .push(Tween.to(mZDepthParam, ZDepthParamAccessor.TWEEN_COLOR,  0.15f)
-                        .target(zDepth.getColorAlphaShadowAbove(), zDepth.getColorAlphaShadowBelow())
-                        .ease(Linear.INOUT))
-                .push(Tween.to(mZDepthParam, ZDepthParamAccessor.TWEEN_OFFSET, 0.15f)
-                        .target(zDepth.getOffsetYAbovePx(getContext()), zDepth.getOffsetYBelowPx(getContext()))
-                        .ease(Linear.INOUT))
-                .push(Tween.to(mZDepthParam, ZDepthParamAccessor.TWEEN_BLUR,   0.15f)
-                        .target(zDepth.getBlurRadiusAbovePx(getContext()), zDepth.getBlurRadiusBelowPx(getContext()))
-                        .ease(Linear.INOUT))
-                .setCallback(new TweenCallback() {
-                    @Override
-                    public void onEvent(int type, BaseTween<?> source) {
-                        Log.d(TAG, "call onEvent. Event:" + type);
-                        if (type == TweenCallback.COMPLETE) {
-                            Log.d(TAG, "Tween Event Complete.");
-                            isZDepthAnimating = false;
-                        }
-                    }
-                })
-                .start(mTweenManager);
+        PropertyValuesHolder alphaAboveHolder  = PropertyValuesHolder
+                .ofInt(ANIM_PROPERTY_NAME_ALPHA_ABOVE, mZDepthParam.mColorAlphaShadowAbove, zDepth.getColorAlphaShadowAbove());
+        PropertyValuesHolder alphaBelowHolder  = PropertyValuesHolder
+                .ofInt(ANIM_PROPERTY_NAME_ALPHA_BELOW, mZDepthParam.mColorAlphaShadowBelow, zDepth.getColorAlphaShadowBelow());
+        PropertyValuesHolder offsetAboveHolder = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_NAME_OFFSET_ABOVE, mZDepthParam.mOffsetYAbovePx, zDepth.getOffsetYAbovePx(getContext()));
+        PropertyValuesHolder offsetBelowHolder = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_NAME_OFFSET_BELOW, mZDepthParam.mOffsetYBelowPx, zDepth.getOffsetYBelowPx(getContext()));
+        PropertyValuesHolder blurAboveHolder   = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_NAME_BLUR_ABOVE, mZDepthParam.mBlurRadiusAbovePx, zDepth.getBlurRadiusAbovePx(getContext()));
+        PropertyValuesHolder blurBelowHolder   = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_NAME_BLUR_BELOW, mZDepthParam.mBlurRadiusBelowPx, zDepth.getBlurRadiusBelowPx(getContext()));
 
-        isZDepthAnimating = true;
-
-        // TODO refactoring
-        new Thread(new Runnable() {
-            private long lastMillis = -1;
-
+        ValueAnimator anim = ValueAnimator
+                .ofPropertyValuesHolder(
+                        alphaAboveHolder, alphaBelowHolder,
+                        offsetAboveHolder, offsetBelowHolder,
+                        blurAboveHolder, blurBelowHolder)
+                .setDuration(150);
+        anim.setInterpolator(new LinearInterpolator());
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void run() {
-                while (isZDepthAnimating) {
-                    if (lastMillis > 0) {
-                        long currentMillis = System.currentTimeMillis();
-                        final float delta = (currentMillis - lastMillis) / 1000f;
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int   alphaAbove  = (Integer) animation.getAnimatedValue(ANIM_PROPERTY_NAME_ALPHA_ABOVE);
+                int   alphaBelow  = (Integer) animation.getAnimatedValue(ANIM_PROPERTY_NAME_ALPHA_BELOW);
+                float offsetAbove = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_OFFSET_ABOVE);
+                float offsetBelow = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_OFFSET_BELOW);
+                float blurAbove   = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_BLUR_ABOVE);
+                float blurBelow   = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_BLUR_BELOW);
 
-                        ((Activity) getContext()).runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                mTweenManager.update(delta);
-                                // TODO tweenManager.update の後に ShapeDrawable を初期化して再描画する
-                                mShadow.setParameter(mZDepthParam, 0 + mZDepthPadding, 0 + mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding);
-                                invalidate();
-                            }
-                        });
+                mZDepthParam.mColorAlphaShadowAbove = alphaAbove;
+                mZDepthParam.mColorAlphaShadowBelow = alphaBelow;
+                mZDepthParam.mOffsetYAbovePx = offsetAbove;
+                mZDepthParam.mOffsetYBelowPx = offsetBelow;
+                mZDepthParam.mBlurRadiusAbovePx = blurAbove;
+                mZDepthParam.mBlurRadiusBelowPx = blurBelow;
 
-                        lastMillis = currentMillis;
-                    } else {
-                        lastMillis = System.currentTimeMillis();
-                    }
+                mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding); 
 
-                    try {
-                        Thread.sleep(1000 / 60);
-                    } catch (InterruptedException ex) {
-
-                    }
-                }
-            }
-        }).start();
+                invalidate();
+             }
+         });
+        anim.start();
     }
 }
