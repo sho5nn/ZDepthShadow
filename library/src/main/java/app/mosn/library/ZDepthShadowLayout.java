@@ -32,7 +32,6 @@ public class ZDepthShadowLayout extends FrameLayout {
     }
 
     protected void init(AttributeSet attrs, int defStyle) {
-        setClipChildren(false);
         setClipToPadding(false);
 
         // Load attributes

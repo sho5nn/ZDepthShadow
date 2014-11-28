@@ -1,6 +1,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:shadow="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@+id/buttonLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,21 +27,25 @@
                 shadow:z_depth="z_depth1"
                 shadow:shape="rect">
 
-                <ImageView
+                <com.andexert.library.RippleView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_launcher"
-                    android:scaleType="fitXY"
-                    android:background="#FFFFFF"/>
+                    ripple:rv_type="rectangle"
+                    ripple:rv_zoom="true"
+                    ripple:rv_rippleDuration="150">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TEST"
-                    android:textSize="12dp"
-                    android:textColor="#FFFFFF"
-                    android:background="#990000DD"
-                    android:layout_gravity="right|bottom"/>
+                    <TextView
+                        android:id="@+id/rect_child"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:text="Hello World!"
+                        android:background="@android:color/holo_green_light"/>
+
+                </com.andexert.library.RippleView>
 
             </app.mosn.library.ZDepthShadowLayout>
 
@@ -54,13 +60,13 @@
             <app.mosn.library.ZDepthShadowLayout
                 android:id="@+id/shadowView_2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 shadow:z_depth="z_depth1"
                 shadow:shape="rect">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/ic_launcher"
                     android:scaleType="fitXY"
                     android:background="#FFFFFF"/>
@@ -111,10 +117,10 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
