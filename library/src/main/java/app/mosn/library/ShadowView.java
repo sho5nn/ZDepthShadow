@@ -29,6 +29,7 @@ public class ShadowView extends View {
     protected static final int DEFAULT_ATTR_SHAPE = 0;
     protected static final int DEFAULT_ATTR_ZDEPTH = 1;
     protected static final int DEFAULT_ATTR_ZDEPTH_PADDING = 5;
+    protected static final int DEFAULT_ATTR_ZDEPTH_ANIM_DURATION = 150;
 
     public static final int SHAPE_RECT = 0;
     public static final int SHAPE_OVAL = 1;
@@ -36,6 +37,7 @@ public class ShadowView extends View {
     protected Shadow mShadow;
     protected ZDepthParam mZDepthParam;
     protected int mZDepthPadding;
+    protected long mZDepthAnimDuration;
 
     protected int mAttrShape;
     protected int mAttrZDepth;
@@ -68,12 +70,17 @@ public class ShadowView extends View {
         mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, DEFAULT_ATTR_SHAPE);
         mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
         mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
+        mZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, ShadowView.DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
 
         setShape(mAttrShape);
         setZDepth(mAttrZDepth);
         setZDepthPadding(mAttrZDepthPadding);
 
         typedArray.recycle();
+    }
+
+    protected void setZDepthAnimDuration(long duration) {
+        mZDepthAnimDuration = duration;
     }
 
     protected void setZDepthPadding(int zDepthPaddingValue) {
@@ -207,7 +214,7 @@ public class ShadowView extends View {
                         alphaAboveHolder, alphaBelowHolder,
                         offsetAboveHolder, offsetBelowHolder,
                         blurAboveHolder, blurBelowHolder)
-                .setDuration(150);
+                .setDuration(mZDepthAnimDuration);
         anim.setInterpolator(new LinearInterpolator());
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

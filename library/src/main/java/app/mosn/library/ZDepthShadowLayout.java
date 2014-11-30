@@ -16,7 +16,7 @@ public class ZDepthShadowLayout extends FrameLayout {
     protected int mAttrShape;
     protected int mAttrZDepth;
     protected int mAttrZDepthPadding;
-    protected int mAttrZDepthAnimDuration;
+    protected long mAttrZDepthAnimDuration;
 
     public ZDepthShadowLayout(Context context) {
         this(context, null);
@@ -39,6 +39,7 @@ public class ZDepthShadowLayout extends FrameLayout {
         mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, ShadowView.DEFAULT_ATTR_SHAPE);
         mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, ShadowView.DEFAULT_ATTR_ZDEPTH);
         mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, ShadowView.DEFAULT_ATTR_ZDEPTH_PADDING);
+        mAttrZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, ShadowView.DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
         typedArray.recycle();
     }
 
@@ -53,6 +54,7 @@ public class ZDepthShadowLayout extends FrameLayout {
             mShadowView.setShape(mAttrShape);
             mShadowView.setZDepth(mAttrZDepth);
             mShadowView.setZDepthPadding(mAttrZDepthPadding);
+            mShadowView.setZDepthAnimDuration(mAttrZDepthAnimDuration);
             addView(mShadowView, 0);
         }
 
@@ -114,6 +116,10 @@ public class ZDepthShadowLayout extends FrameLayout {
     public void setZDepthPadding(ZDepth zDepth) {
         mShadowView.setZDepthPadding(zDepth);
         invalidate();
+    }
+
+    public void setZDepthAnimDuration(long duration) {
+        mShadowView.setZDepthAnimDuration(duration);
     }
 
     public void changeZDepth(ZDepth zDepth) {
