@@ -69,19 +69,19 @@ public class ShadowView extends View {
         mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
         mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
 
-        initShape(mAttrShape);
-        initZDepth(mAttrZDepth);
-        initZDepthPadding(mAttrZDepthPadding);
+        setShape(mAttrShape);
+        setZDepth(mAttrZDepth);
+        setZDepthPadding(mAttrZDepthPadding);
 
         typedArray.recycle();
     }
 
-    protected void initZDepthPadding(int zDepthPaddingValue) {
+    protected void setZDepthPadding(int zDepthPaddingValue) {
         ZDepth zDepth = getZDepthWithAttributeValue(zDepthPaddingValue);
-        initZDepthPadding(zDepth);
+        setZDepthPadding(zDepth);
     }
 
-    protected void initZDepthPadding(ZDepth zDepth) {
+    protected void setZDepthPadding(ZDepth zDepth) {
         float maxAboveBlurRadius = zDepth.getBlurRadiusAbovePx(getContext());
         float maxAboveOffset     = zDepth.getOffsetYAbovePx(getContext());
         float maxBelowBlurRadius = zDepth.getBlurRadiusBelowPx(getContext());
@@ -93,15 +93,11 @@ public class ShadowView extends View {
         mZDepthPadding = (int) Math.max(maxAboveSize, maxBelowSize);
     }
 
-    protected void setZDepthPadding(ZDepth zDepth) {
-        initZDepthPadding(zDepth);
-    }
-
     protected int getZDepthPadding() {
         return mZDepthPadding;
     }
 
-    protected void initShape(int shape) {
+    protected void setShape(int shape) {
         switch (shape) {
             case SHAPE_RECT:
                 mShadow = new ShadowRect();
@@ -116,27 +112,14 @@ public class ShadowView extends View {
         }
     }
 
-    protected void setShape(int shape) {
-        initShape(shape);
-    }
-
-    protected void initZDepth(int zDepthValue) {
-        ZDepth zDepth = getZDepthWithAttributeValue(zDepthValue);
-        initZDepth(zDepth);
-    }
-
-    protected void initZDepth(ZDepth zDepth) {
-        mZDepthParam = new ZDepthParam();
-        mZDepthParam.initZDepth(getContext(), zDepth);
-    }
-
     protected void setZDepth(int zDepthValue) {
         ZDepth zDepth = getZDepthWithAttributeValue(zDepthValue);
         setZDepth(zDepth);
     }
 
     protected void setZDepth(ZDepth zDepth) {
-        initZDepth(zDepth);
+        mZDepthParam = new ZDepthParam();
+        mZDepthParam.initZDepth(getContext(), zDepth);
     }
 
     private ZDepth getZDepthWithAttributeValue(int zDepthValue) {
