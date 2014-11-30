@@ -30,6 +30,7 @@ public class ShadowView extends View {
     protected static final int DEFAULT_ATTR_ZDEPTH = 1;
     protected static final int DEFAULT_ATTR_ZDEPTH_PADDING = 5;
     protected static final int DEFAULT_ATTR_ZDEPTH_ANIM_DURATION = 150;
+    protected static final boolean DEFAULT_ATTR_ZDEPTH_DO_ANIMATION = true;
 
     public static final int SHAPE_RECT = 0;
     public static final int SHAPE_OVAL = 1;
@@ -38,11 +39,11 @@ public class ShadowView extends View {
     protected ZDepthParam mZDepthParam;
     protected int mZDepthPadding;
     protected long mZDepthAnimDuration;
+    protected boolean mZDepthDoAnimation;
 
     protected int mAttrShape;
     protected int mAttrZDepth;
     protected int mAttrZDepthPadding;
-
 
     protected ShadowView(Context context) {
         super(context);
@@ -70,13 +71,18 @@ public class ShadowView extends View {
         mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, DEFAULT_ATTR_SHAPE);
         mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
         mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
-        mZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, ShadowView.DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
+        mZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
+        mZDepthDoAnimation = typedArray.getBoolean(R.styleable.ZDepthShadow_z_depth_doAnim, DEFAULT_ATTR_ZDEPTH_DO_ANIMATION);
 
         setShape(mAttrShape);
         setZDepth(mAttrZDepth);
         setZDepthPadding(mAttrZDepthPadding);
 
         typedArray.recycle();
+    }
+
+    protected void setZDepthDoAnimation(boolean doAnimation) {
+        mZDepthDoAnimation = doAnimation;
     }
 
     protected void setZDepthAnimDuration(long duration) {
@@ -195,6 +201,19 @@ public class ShadowView extends View {
     }
 
     protected void changeZDepth(ZDepth zDepth) {
+
+        if (!mZDepthDoAnimation) {
+            mZDepthParam.mColorAlphaShadowAbove = zDepth.getColorAlphaShadowAbove();
+            mZDepthParam.mColorAlphaShadowBelow = zDepth.getColorAlphaShadowBelow();
+            mZDepthParam.mOffsetYAbovePx = zDepth.getOffsetYAbovePx(getContext());
+            mZDepthParam.mOffsetYBelowPx = zDepth.getOffsetYBelowPx(getContext());
+            mZDepthParam.mBlurRadiusAbovePx = zDepth.getBlurRadiusAbovePx(getContext());
+            mZDepthParam.mBlurRadiusBelowPx = zDepth.getBlurRadiusBelowPx(getContext());
+
+            mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding);
+            invalidate();
+            return;
+        }
 
         PropertyValuesHolder alphaAboveHolder  = PropertyValuesHolder
                 .ofInt(ANIM_PROPERTY_NAME_ALPHA_ABOVE, mZDepthParam.mColorAlphaShadowAbove, zDepth.getColorAlphaShadowAbove());

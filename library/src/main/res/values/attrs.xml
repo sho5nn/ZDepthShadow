@@ -22,5 +22,6 @@
             <enum name="z_depth5" value="5"/>
         </attr>
         <attr name="z_depth_animDuration" format="integer"/>
+        <attr name="z_depth_doAnim" format="boolean"/>
     </declare-styleable>
 </resources>
