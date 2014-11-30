@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 shadow:z_depth="z_depth1"
-                shadow:shape="rect">
+                shadow:z_depth_shape="rect">
 
                 <com.andexert.library.RippleView
                     android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 shadow:z_depth="z_depth1"
-                shadow:shape="rect">
+                shadow:z_depth_shape="rect">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 shadow:z_depth="z_depth1"
-                shadow:shape="rect">
+                shadow:z_depth_shape="rect">
 
                 <ImageView
                     android:layout_width="match_parent"

@@ -9,7 +9,7 @@
             <enum name="z_depth4" value="4"/>
             <enum name="z_depth5" value="5"/>
         </attr>
-        <attr name="shape" format="enum">
+        <attr name="z_depth_shape" format="enum">
             <enum name="rect" value="0"/>
             <enum name="oval" value="1"/>
         </attr>

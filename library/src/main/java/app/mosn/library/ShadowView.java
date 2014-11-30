@@ -65,7 +65,7 @@ public class ShadowView extends View {
 
         // Load attributes
         final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadow, defStyle, 0);
-        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_shape, DEFAULT_ATTR_SHAPE);
+        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, DEFAULT_ATTR_SHAPE);
         mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
         mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
 

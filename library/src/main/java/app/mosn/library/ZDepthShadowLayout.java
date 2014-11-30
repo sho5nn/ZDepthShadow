@@ -3,7 +3,6 @@ package app.mosn.library;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -36,7 +35,7 @@ public class ZDepthShadowLayout extends FrameLayout {
 
         // Load attributes
         final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadow, defStyle, 0);
-        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_shape, ShadowView.DEFAULT_ATTR_SHAPE);
+        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, ShadowView.DEFAULT_ATTR_SHAPE);
         mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, ShadowView.DEFAULT_ATTR_ZDEPTH);
         mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, ShadowView.DEFAULT_ATTR_ZDEPTH_PADDING);
         typedArray.recycle();
