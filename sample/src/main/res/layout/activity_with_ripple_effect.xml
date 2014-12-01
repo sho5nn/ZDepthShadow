@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shadow="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth0"
+            shadow:z_depth_shape="rect">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="ZDepth 0"
+                    android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth1"
+            shadow:z_depth_shape="rect">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="ZDepth 1"
+                    android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth2"
+            shadow:z_depth_shape="rect">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="ZDepth 2"
+                    android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth3"
+            shadow:z_depth_shape="rect">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="ZDepth 3"
+                    android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth4"
+            shadow:z_depth_shape="rect">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="ZDepth 4"
+                    android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth5"
+            shadow:z_depth_shape="rect">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="ZDepth 5"
+                    android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -26,8 +26,7 @@ public class MainActivity extends ActionBarActivity {
                 new String[]{
                         "Simple ZDepthShadowLayout",
                         "Change ZDepth",
-                        "OnClick",
-                        "with RippleEffect"
+                        "with RippleEffect Library"
                 }));
     }
 
@@ -45,9 +44,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
 
             case 2:
-                break;
-
-            case 3:
+                intent = new Intent(this, WithRippleEffectActivity.class);
                 break;
 
             default:
