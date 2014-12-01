@@ -98,11 +98,11 @@ public class ZDepthShadowLayout extends FrameLayout {
         mShadowView.layout(0, 0, width, height);
     }
 
-    public int getWidthWithoutShadow() {
+    public int getWidthExceptShadow() {
         return getWidth() - getPaddingLeft() - getPaddingRight();
     }
 
-    public int getHeightWithoutShadow() {
+    public int getHeightExceptShadow() {
         return getHeight() - getPaddingTop() - getPaddingBottom();
     }
 
