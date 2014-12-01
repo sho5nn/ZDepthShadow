@@ -1,5 +1,6 @@
 package app.mosn.zdepthshadowsample;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -32,8 +33,11 @@ public class MainActivity extends ActionBarActivity {
 
     @OnItemClick(R.id.listView)
     protected void onItemClick(int position) {
+        Intent intent = null;
+
         switch (position) {
             case 0:
+                intent = new Intent(this, SimpleZDepthActivity.class);
                 break;
 
             case 1:
@@ -44,6 +48,11 @@ public class MainActivity extends ActionBarActivity {
 
             case 3:
                 break;
+
+            default:
+                return;
         }
+
+        startActivity(intent);
     }
 }
