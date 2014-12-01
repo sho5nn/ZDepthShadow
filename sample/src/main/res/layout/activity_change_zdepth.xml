@@ -6,10 +6,11 @@
     android:layout_height="match_parent">
 
     <app.mosn.library.ZDepthShadowLayout
-        android:id="@+id/zDepthShadowLayout"
+        android:id="@+id/zDepthShadowLayout_rect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/view_dummy"
         shadow:z_depth="z_depth1"
         shadow:z_depth_shape="rect"
         shadow:z_depth_padding="z_depth5">
@@ -23,11 +24,37 @@
 
     </app.mosn.library.ZDepthShadowLayout>
 
+    <View
+        android:id="@+id/view_dummy"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"/>
+
+    <app.mosn.library.ZDepthShadowLayout
+        android:id="@+id/zDepthShadowLayout_oval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/view_dummy"
+        shadow:z_depth="z_depth1"
+        shadow:z_depth_shape="oval"
+        shadow:z_depth_padding="z_depth5">
+
+        <TextView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="16dp"
+            android:text="+"
+            android:gravity="center"
+            android:background="@drawable/drawable_circle"/>
+
+    </app.mosn.library.ZDepthShadowLayout>
+
     <LinearLayout
         android:id="@+id/linearLayout_changeZDepthButtons_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/zDepthShadowLayout"
+        android:layout_below="@+id/zDepthShadowLayout_rect"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
