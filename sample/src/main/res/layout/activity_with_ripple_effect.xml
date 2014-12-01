@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center">
 
         <app.mosn.library.ZDepthShadowLayout
             android:layout_width="wrap_content"
@@ -139,6 +140,150 @@
                     android:padding="16dp"
                     android:text="ZDepth 5"
                     android:background="@android:color/white"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth0"
+            shadow:z_depth_shape="oval">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray"
+                ripple:rv_centered="true">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="16dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:background="@drawable/drawable_circle"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth1"
+            shadow:z_depth_shape="oval">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray"
+                ripple:rv_centered="true">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="16dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:background="@drawable/drawable_circle"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth2"
+            shadow:z_depth_shape="oval">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray"
+                ripple:rv_centered="true">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="16dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:background="@drawable/drawable_circle"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth3"
+            shadow:z_depth_shape="oval">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray"
+                ripple:rv_centered="true">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="16dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:background="@drawable/drawable_circle"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth4"
+            shadow:z_depth_shape="oval">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray"
+                ripple:rv_centered="true">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="16dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:background="@drawable/drawable_circle"/>
+
+            </com.andexert.library.RippleView>
+
+        </app.mosn.library.ZDepthShadowLayout>
+
+        <app.mosn.library.ZDepthShadowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            shadow:z_depth="z_depth5"
+            shadow:z_depth_shape="oval">
+
+            <com.andexert.library.RippleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ripple:rv_color="@android:color/darker_gray"
+                ripple:rv_centered="true">
+
+                <TextView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="16dp"
+                    android:text="+"
+                    android:gravity="center"
+                    android:background="@drawable/drawable_circle"/>
 
             </com.andexert.library.RippleView>
 
