@@ -106,25 +106,6 @@ public class ZDepthShadowLayout extends FrameLayout {
         return getHeight() - getPaddingTop() - getPaddingBottom();
     }
 
-    public void setShape(int shape) {
-        mShadowView.setShape(shape);
-        invalidate();
-    }
-
-    public void setZDepth(ZDepth zDepth) {
-        mShadowView.setZDepth(zDepth);
-        invalidate();
-    }
-
-    public void setZDepthPadding(ZDepth zDepth) {
-        mShadowView.setZDepthPadding(zDepth);
-        invalidate();
-    }
-
-    public void setZDepthAnimDuration(long duration) {
-        mShadowView.setZDepthAnimDuration(duration);
-    }
-
     public void changeZDepth(ZDepth zDepth) {
         mShadowView.changeZDepth(zDepth);
     }
