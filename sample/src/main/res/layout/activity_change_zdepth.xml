@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shadow="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <app.mosn.library.ZDepthShadowLayout
+        android:id="@+id/zDepthShadowLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        shadow:z_depth="z_depth1"
+        shadow:z_depth_shape="rect"
+        shadow:z_depth_padding="z_depth5">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Change ZDepth"
+            android:background="@android:color/white"/>
+
+    </app.mosn.library.ZDepthShadowLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_changeZDepthButtons_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zDepthShadowLayout"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_zDepth_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="ZDepth 0"/>
+
+        <Button
+            android:id="@+id/button_zDepth_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="ZDepth 1"/>
+
+        <Button
+            android:id="@+id/button_zDepth_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="ZDepth 2"/>
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linearLayout_changeZDepthButtons_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout_changeZDepthButtons_1"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_zDepth_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="ZDepth 3"/>
+
+        <Button
+            android:id="@+id/button_zDepth_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="ZDepth 4"/>
+
+        <Button
+            android:id="@+id/button_zDepth_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="ZDepth 5"/>
+    </LinearLayout>
+
+</RelativeLayout>

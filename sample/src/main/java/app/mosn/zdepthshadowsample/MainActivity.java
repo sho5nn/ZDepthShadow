@@ -41,6 +41,7 @@ public class MainActivity extends ActionBarActivity {
                 break;
 
             case 1:
+                intent = new Intent(this, ChangeZDepthActivity.class);
                 break;
 
             case 2:
