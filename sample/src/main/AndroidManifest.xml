@@ -28,6 +28,10 @@
             android:name=".WithRippleEffectActivity"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".SampleFloatingActionMenuActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>

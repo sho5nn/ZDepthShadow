@@ -26,7 +26,8 @@ public class MainActivity extends ActionBarActivity {
                 new String[]{
                         "Simple ZDepthShadowLayout",
                         "Change ZDepth",
-                        "with RippleEffect Library"
+                        "with RippleEffect Library",
+                        "Sample FloatingActionMenu"
                 }));
     }
 
@@ -45,6 +46,10 @@ public class MainActivity extends ActionBarActivity {
 
             case 2:
                 intent = new Intent(this, WithRippleEffectActivity.class);
+                break;
+
+            case 3:
+                intent = new Intent(this, SampleFloatingActionMenuActivity.class);
                 break;
 
             default:
