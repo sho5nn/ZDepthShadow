@@ -56,45 +56,45 @@ public enum ZDepth {
             6.0f
     );
 
-    public final int colorAlphaShadowAbove; // alpha to black
-    public final int colorAlphaShadowBelow; // alpha to black
+    public final int mColorAlphaTopShadow; // alpha to black
+    public final int mColorAlphaBottomShadow; // alpha to black
 
-    public final float offsetYAbove; // dp
-    public final float offsetYBelow; // dp
+    public final float mOffsetYTopShadow; // dp
+    public final float mOffsetYBottomShadow; // dp
 
-    public final float blurRadiusAbove; // dp
-    public final float blurRadiusBelow; // dp
+    public final float mBlurTopShadow; // dp
+    public final float mBlurBottomShadow; // dp
 
-    private ZDepth(int colorAlphaShadowAbove, int colorAlphaShadowBelow, float offsetYAbove, float offsetYBelow, float blurRadiusAbove, float blurRadiusBelow) {
-        this.colorAlphaShadowAbove = colorAlphaShadowAbove;
-        this.colorAlphaShadowBelow = colorAlphaShadowBelow;
-        this.offsetYAbove = offsetYAbove;
-        this.offsetYBelow = offsetYBelow;
-        this.blurRadiusAbove = blurRadiusAbove;
-        this.blurRadiusBelow = blurRadiusBelow;
+    private ZDepth(int colorAlphaTopShadow, int colorAlphaBottomShadow, float offsetYTopShadow, float offsetYBottomShadow, float blurTopShadow, float blurBottomShadow) {
+        mColorAlphaTopShadow = colorAlphaTopShadow;
+        mColorAlphaBottomShadow = colorAlphaBottomShadow;
+        mOffsetYTopShadow = offsetYTopShadow;
+        mOffsetYBottomShadow = offsetYBottomShadow;
+        mBlurTopShadow = blurTopShadow;
+        mBlurBottomShadow = blurBottomShadow;
     }
 
-    public int getColorAlphaShadowAbove() {
-        return colorAlphaShadowAbove;
+    public int getColorAlphaTopShadow() {
+        return mColorAlphaTopShadow;
     }
 
-    public int getColorAlphaShadowBelow() {
-        return colorAlphaShadowBelow;
+    public int getColorAlphaBottomShadow() {
+        return mColorAlphaBottomShadow;
     }
 
-    public float getOffsetYAbovePx(Context context) {
-        return DisplayUtils.convertDpToPx(context, offsetYAbove);
+    public float getOffsetYTopShadowPx(Context context) {
+        return DisplayUtils.convertDpToPx(context, mOffsetYTopShadow);
     }
 
-    public float getOffsetYBelowPx(Context context) {
-        return DisplayUtils.convertDpToPx(context, offsetYBelow);
+    public float getOffsetYBottomShadowPx(Context context) {
+        return DisplayUtils.convertDpToPx(context, mOffsetYBottomShadow);
     }
 
-    public float getBlurRadiusAbovePx(Context context) {
-        return DisplayUtils.convertDpToPx(context, blurRadiusAbove);
+    public float getBlurTopShadowPx(Context context) {
+        return DisplayUtils.convertDpToPx(context, mBlurTopShadow);
     }
 
-    public float getBlurRadiusBelowPx(Context context) {
-        return DisplayUtils.convertDpToPx(context, blurRadiusBelow);
+    public float getBlurBottomShadowPx(Context context) {
+        return DisplayUtils.convertDpToPx(context, mBlurBottomShadow);
     }
 }

@@ -11,41 +11,49 @@ import app.mosn.library.ZDepthParam;
 
 public class ShadowRect implements Shadow {
 
-    private ShapeDrawable mShadowAbove;
-    private ShapeDrawable mShadowBelow;
+    private ShapeDrawable mTopShadow;
+    private ShapeDrawable mBottomShadow;
 
-    private Rect mRectShadowAbove;
-    private Rect mRectShadowBelow;
+    private Rect mRectTopShadow;
+    private Rect mRectBottomShadow;
 
     public ShadowRect() {
-        mRectShadowAbove = new Rect();
-        mRectShadowBelow = new Rect();
+        mRectTopShadow = new Rect();
+        mRectBottomShadow = new Rect();
+        mTopShadow = new ShapeDrawable(new RectShape());
+        mBottomShadow = new ShapeDrawable(new RectShape());
     }
 
     @Override
-    public void setParameter(ZDepthParam parameter, int left, int top, int right, int bottom) {
-        mRectShadowAbove.left   = left;
-        mRectShadowAbove.top    = (int) (top    + parameter.mOffsetYAbovePx);
-        mRectShadowAbove.right  = right;
-        mRectShadowAbove.bottom = (int) (bottom + parameter.mOffsetYAbovePx);
+    public void setParameter(ZDepthParam param, int left, int top, int right, int bottom) {
+        mRectTopShadow.left   = left;
+        mRectTopShadow.top    = (int) (top    + param.mOffsetYTopShadowPx);
+        mRectTopShadow.right  = right;
+        mRectTopShadow.bottom = (int) (bottom + param.mOffsetYTopShadowPx);
 
-        mRectShadowBelow.left   = left;
-        mRectShadowBelow.top    = (int) (top    + parameter.mOffsetYBelowPx);
-        mRectShadowBelow.right  = right;
-        mRectShadowBelow.bottom = (int) (bottom + parameter.mOffsetYBelowPx);
+        mRectBottomShadow.left   = left;
+        mRectBottomShadow.top    = (int) (top    + param.mOffsetYBottomShadowPx);
+        mRectBottomShadow.right  = right;
+        mRectBottomShadow.bottom = (int) (bottom + param.mOffsetYBottomShadowPx);
 
-        mShadowAbove = new ShapeDrawable(new RectShape());
-        mShadowAbove.getPaint().setColor(Color.argb(parameter.mColorAlphaShadowAbove, 0, 0, 0));
-        if (0 < parameter.mBlurRadiusAbovePx) mShadowAbove.getPaint().setMaskFilter(new BlurMaskFilter(parameter.mBlurRadiusAbovePx, BlurMaskFilter.Blur.NORMAL));
+        mTopShadow.getPaint().setColor(Color.argb(param.mColorAlphaTopShadow, 0, 0, 0));
+        if (0 < param.mBlurRadiusTopShadowPx) {
+            mTopShadow.getPaint().setMaskFilter(new BlurMaskFilter(param.mBlurRadiusTopShadowPx, BlurMaskFilter.Blur.NORMAL));
+        } else {
+            mTopShadow.getPaint().setMaskFilter(null);
+        }
 
-        mShadowBelow = new ShapeDrawable(new RectShape());
-        mShadowBelow.getPaint().setColor(Color.argb(parameter.mColorAlphaShadowBelow, 0, 0, 0));
-        if (0 < parameter.mBlurRadiusBelowPx) mShadowBelow.getPaint().setMaskFilter(new BlurMaskFilter(parameter.mBlurRadiusBelowPx, BlurMaskFilter.Blur.NORMAL));
+        mBottomShadow.getPaint().setColor(Color.argb(param.mColorAlphaBottomShadow, 0, 0, 0));
+        if (0 < param.mBlurRadiusBottomShadowPx) {
+            mBottomShadow.getPaint().setMaskFilter(new BlurMaskFilter(param.mBlurRadiusBottomShadowPx, BlurMaskFilter.Blur.NORMAL));
+        } else {
+            mBottomShadow.getPaint().setMaskFilter(null);
+        }
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawRect(mRectShadowBelow, mShadowBelow.getPaint());
-        canvas.drawRect(mRectShadowAbove, mShadowAbove.getPaint());
+        canvas.drawRect(mRectBottomShadow, mBottomShadow.getPaint());
+        canvas.drawRect(mRectTopShadow, mTopShadow.getPaint());
     }
 }

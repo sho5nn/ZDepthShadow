@@ -19,12 +19,12 @@ import app.mosn.library.shadow.ShadowRect;
 public class ShadowView extends View {
     protected static final String TAG = "ShadowView";
 
-    protected static final String ANIM_PROPERTY_NAME_ALPHA_ABOVE  = "alphaAbove";
-    protected static final String ANIM_PROPERTY_NAME_ALPHA_BELOW  = "alphaBelow";
-    protected static final String ANIM_PROPERTY_NAME_OFFSET_ABOVE = "offsetAbove";
-    protected static final String ANIM_PROPERTY_NAME_OFFSET_BELOW = "offsetBelow";
-    protected static final String ANIM_PROPERTY_NAME_BLUR_ABOVE   = "blurAbove";
-    protected static final String ANIM_PROPERTY_NAME_BLUR_BELOW   = "blurBelow";
+    protected static final String ANIM_PROPERTY_ALPHA_TOP_SHADOW = "alphaTopShadow";
+    protected static final String ANIM_PROPERTY_ALPHA_BOTTOM_SHADOW = "alphaBottomShadow";
+    protected static final String ANIM_PROPERTY_OFFSET_TOP_SHADOW = "offsetTopShadow";
+    protected static final String ANIM_PROPERTY_OFFSET_BOTTOM_SHADOW = "offsetBottomShadow";
+    protected static final String ANIM_PROPERTY_BLUR_TOP_SHADOW = "blurTopShadow";
+    protected static final String ANIM_PROPERTY_BLUR_BOTTOM_SHADOW = "blurBottomShadow";
 
     protected static final int DEFAULT_ATTR_SHAPE = 0;
     protected static final int DEFAULT_ATTR_ZDEPTH = 1;
@@ -95,10 +95,10 @@ public class ShadowView extends View {
     }
 
     protected void setZDepthPadding(ZDepth zDepth) {
-        float maxAboveBlurRadius = zDepth.getBlurRadiusAbovePx(getContext());
-        float maxAboveOffset     = zDepth.getOffsetYAbovePx(getContext());
-        float maxBelowBlurRadius = zDepth.getBlurRadiusBelowPx(getContext());
-        float maxBelowOffset     = zDepth.getOffsetYBelowPx(getContext());
+        float maxAboveBlurRadius = zDepth.getBlurTopShadowPx(getContext());
+        float maxAboveOffset     = zDepth.getOffsetYTopShadowPx(getContext());
+        float maxBelowBlurRadius = zDepth.getBlurBottomShadowPx(getContext());
+        float maxBelowOffset     = zDepth.getOffsetYBottomShadowPx(getContext());
 
         float maxAboveSize = maxAboveBlurRadius + maxAboveOffset;
         float maxBelowSize = maxBelowBlurRadius + maxBelowOffset;
@@ -203,54 +203,57 @@ public class ShadowView extends View {
     protected void changeZDepth(ZDepth zDepth) {
 
         if (!mZDepthDoAnimation) {
-            mZDepthParam.mColorAlphaShadowAbove = zDepth.getColorAlphaShadowAbove();
-            mZDepthParam.mColorAlphaShadowBelow = zDepth.getColorAlphaShadowBelow();
-            mZDepthParam.mOffsetYAbovePx = zDepth.getOffsetYAbovePx(getContext());
-            mZDepthParam.mOffsetYBelowPx = zDepth.getOffsetYBelowPx(getContext());
-            mZDepthParam.mBlurRadiusAbovePx = zDepth.getBlurRadiusAbovePx(getContext());
-            mZDepthParam.mBlurRadiusBelowPx = zDepth.getBlurRadiusBelowPx(getContext());
+            mZDepthParam.mColorAlphaTopShadow = zDepth.getColorAlphaTopShadow();
+            mZDepthParam.mColorAlphaBottomShadow = zDepth.getColorAlphaBottomShadow();
+            mZDepthParam.mOffsetYTopShadowPx = zDepth.getOffsetYTopShadowPx(getContext());
+            mZDepthParam.mOffsetYBottomShadowPx = zDepth.getOffsetYBottomShadowPx(getContext());
+            mZDepthParam.mBlurRadiusTopShadowPx = zDepth.getBlurTopShadowPx(getContext());
+            mZDepthParam.mBlurRadiusBottomShadowPx = zDepth.getBlurBottomShadowPx(getContext());
 
             mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding);
             invalidate();
             return;
         }
 
-        PropertyValuesHolder alphaAboveHolder  = PropertyValuesHolder
-                .ofInt(ANIM_PROPERTY_NAME_ALPHA_ABOVE, mZDepthParam.mColorAlphaShadowAbove, zDepth.getColorAlphaShadowAbove());
-        PropertyValuesHolder alphaBelowHolder  = PropertyValuesHolder
-                .ofInt(ANIM_PROPERTY_NAME_ALPHA_BELOW, mZDepthParam.mColorAlphaShadowBelow, zDepth.getColorAlphaShadowBelow());
-        PropertyValuesHolder offsetAboveHolder = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_NAME_OFFSET_ABOVE, mZDepthParam.mOffsetYAbovePx, zDepth.getOffsetYAbovePx(getContext()));
-        PropertyValuesHolder offsetBelowHolder = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_NAME_OFFSET_BELOW, mZDepthParam.mOffsetYBelowPx, zDepth.getOffsetYBelowPx(getContext()));
-        PropertyValuesHolder blurAboveHolder   = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_NAME_BLUR_ABOVE, mZDepthParam.mBlurRadiusAbovePx, zDepth.getBlurRadiusAbovePx(getContext()));
-        PropertyValuesHolder blurBelowHolder   = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_NAME_BLUR_BELOW, mZDepthParam.mBlurRadiusBelowPx, zDepth.getBlurRadiusBelowPx(getContext()));
+        PropertyValuesHolder alphaTopShadowHolder     = PropertyValuesHolder
+                .ofInt(ANIM_PROPERTY_ALPHA_TOP_SHADOW, mZDepthParam.mColorAlphaTopShadow, zDepth.getColorAlphaTopShadow());
+        PropertyValuesHolder alphaBottomShadowHolder  = PropertyValuesHolder
+                .ofInt(ANIM_PROPERTY_ALPHA_BOTTOM_SHADOW, mZDepthParam.mColorAlphaBottomShadow, zDepth.getColorAlphaBottomShadow());
+        PropertyValuesHolder offsetTopShadowHolder    = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_OFFSET_TOP_SHADOW, mZDepthParam.mOffsetYTopShadowPx, zDepth.getOffsetYTopShadowPx(getContext()));
+        PropertyValuesHolder offsetBottomShadowHolder = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_OFFSET_BOTTOM_SHADOW, mZDepthParam.mOffsetYBottomShadowPx, zDepth.getOffsetYBottomShadowPx(getContext()));
+        PropertyValuesHolder blurTopShadowHolder      = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_BLUR_TOP_SHADOW, mZDepthParam.mBlurRadiusTopShadowPx, zDepth.getBlurTopShadowPx(getContext()));
+        PropertyValuesHolder blurBottomShadowHolder   = PropertyValuesHolder
+                .ofFloat(ANIM_PROPERTY_BLUR_BOTTOM_SHADOW, mZDepthParam.mBlurRadiusBottomShadowPx, zDepth.getBlurBottomShadowPx(getContext()));
 
         ValueAnimator anim = ValueAnimator
                 .ofPropertyValuesHolder(
-                        alphaAboveHolder, alphaBelowHolder,
-                        offsetAboveHolder, offsetBelowHolder,
-                        blurAboveHolder, blurBelowHolder)
-                .setDuration(mZDepthAnimDuration);
+                        alphaTopShadowHolder,
+                        alphaBottomShadowHolder,
+                        offsetTopShadowHolder,
+                        offsetBottomShadowHolder,
+                        blurTopShadowHolder,
+                        blurBottomShadowHolder);
+        anim.setDuration(mZDepthAnimDuration);
         anim.setInterpolator(new LinearInterpolator());
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                int   alphaAbove  = (Integer) animation.getAnimatedValue(ANIM_PROPERTY_NAME_ALPHA_ABOVE);
-                int   alphaBelow  = (Integer) animation.getAnimatedValue(ANIM_PROPERTY_NAME_ALPHA_BELOW);
-                float offsetAbove = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_OFFSET_ABOVE);
-                float offsetBelow = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_OFFSET_BELOW);
-                float blurAbove   = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_BLUR_ABOVE);
-                float blurBelow   = (Float) animation.getAnimatedValue(ANIM_PROPERTY_NAME_BLUR_BELOW);
+                int   alphaTopShadow     = (Integer) animation.getAnimatedValue(ANIM_PROPERTY_ALPHA_TOP_SHADOW);
+                int   alphaBottomShadow  = (Integer) animation.getAnimatedValue(ANIM_PROPERTY_ALPHA_BOTTOM_SHADOW);
+                float offsetTopShadow    = (Float) animation.getAnimatedValue(ANIM_PROPERTY_OFFSET_TOP_SHADOW);
+                float offsetBottomShadow = (Float) animation.getAnimatedValue(ANIM_PROPERTY_OFFSET_BOTTOM_SHADOW);
+                float blurTopShadow      = (Float) animation.getAnimatedValue(ANIM_PROPERTY_BLUR_TOP_SHADOW);
+                float blurBottomShadow   = (Float) animation.getAnimatedValue(ANIM_PROPERTY_BLUR_BOTTOM_SHADOW);
 
-                mZDepthParam.mColorAlphaShadowAbove = alphaAbove;
-                mZDepthParam.mColorAlphaShadowBelow = alphaBelow;
-                mZDepthParam.mOffsetYAbovePx = offsetAbove;
-                mZDepthParam.mOffsetYBelowPx = offsetBelow;
-                mZDepthParam.mBlurRadiusAbovePx = blurAbove;
-                mZDepthParam.mBlurRadiusBelowPx = blurBelow;
+                mZDepthParam.mColorAlphaTopShadow = alphaTopShadow;
+                mZDepthParam.mColorAlphaBottomShadow = alphaBottomShadow;
+                mZDepthParam.mOffsetYTopShadowPx = offsetTopShadow;
+                mZDepthParam.mOffsetYBottomShadowPx = offsetBottomShadow;
+                mZDepthParam.mBlurRadiusTopShadowPx = blurTopShadow;
+                mZDepthParam.mBlurRadiusBottomShadowPx = blurBottomShadow;
 
                 mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding); 
 

@@ -6,29 +6,29 @@ import android.graphics.Color;
 
 public class ZDepthParam {
 
-    public int mColorAlphaShadowAbove; // alpha to black
-    public int mColorAlphaShadowBelow; // alpha to black
+    public int mColorAlphaTopShadow; // alpha to black
+    public int mColorAlphaBottomShadow; // alpha to black
 
-    public float mOffsetYAbovePx; // px
-    public float mOffsetYBelowPx; // px
+    public float mOffsetYTopShadowPx; // px
+    public float mOffsetYBottomShadowPx; // px
 
-    public float mBlurRadiusAbovePx; // px
-    public float mBlurRadiusBelowPx; // px
+    public float mBlurRadiusTopShadowPx; // px
+    public float mBlurRadiusBottomShadowPx; // px
 
     public void initZDepth(Context context, ZDepth zDepth) {
-        mColorAlphaShadowAbove = zDepth.getColorAlphaShadowAbove();
-        mColorAlphaShadowBelow = zDepth.getColorAlphaShadowBelow();
-        mOffsetYAbovePx = zDepth.getOffsetYAbovePx(context);
-        mOffsetYBelowPx = zDepth.getOffsetYBelowPx(context);
-        mBlurRadiusAbovePx = zDepth.getBlurRadiusAbovePx(context);
-        mBlurRadiusBelowPx = zDepth.getBlurRadiusBelowPx(context);
+        mColorAlphaTopShadow = zDepth.getColorAlphaTopShadow();
+        mColorAlphaBottomShadow = zDepth.getColorAlphaBottomShadow();
+        mOffsetYTopShadowPx = zDepth.getOffsetYTopShadowPx(context);
+        mOffsetYBottomShadowPx = zDepth.getOffsetYBottomShadowPx(context);
+        mBlurRadiusTopShadowPx = zDepth.getBlurTopShadowPx(context);
+        mBlurRadiusBottomShadowPx = zDepth.getBlurBottomShadowPx(context);
     }
 
-    public int getColorShadowAbove() {
-        return Color.argb(mColorAlphaShadowAbove, 0, 0, 0);
+    public int getColorTopShadow() {
+        return Color.argb(mColorAlphaTopShadow, 0, 0, 0);
     }
 
-    public int getColorShadowBelow() {
-        return Color.argb(mColorAlphaShadowBelow, 0, 0, 0);
+    public int getColorBottomShadow() {
+        return Color.argb(mColorAlphaBottomShadow, 0, 0, 0);
     }
 }
