@@ -26,59 +26,32 @@ public class ShadowView extends View {
     protected static final String ANIM_PROPERTY_BLUR_TOP_SHADOW = "blurTopShadow";
     protected static final String ANIM_PROPERTY_BLUR_BOTTOM_SHADOW = "blurBottomShadow";
 
-    protected static final int DEFAULT_ATTR_SHAPE = 0;
-    protected static final int DEFAULT_ATTR_ZDEPTH = 1;
-    protected static final int DEFAULT_ATTR_ZDEPTH_PADDING = 5;
-    protected static final int DEFAULT_ATTR_ZDEPTH_ANIM_DURATION = 150;
-    protected static final boolean DEFAULT_ATTR_ZDEPTH_DO_ANIMATION = true;
-
-    public static final int SHAPE_RECT = 0;
-    public static final int SHAPE_OVAL = 1;
-
     protected Shadow mShadow;
     protected ZDepthParam mZDepthParam;
     protected int mZDepthPadding;
     protected long mZDepthAnimDuration;
     protected boolean mZDepthDoAnimation;
 
-    protected int mAttrShape;
-    protected int mAttrZDepth;
-    protected int mAttrZDepthPadding;
-
     protected ShadowView(Context context) {
-        super(context);
-        init(null, 0);
+        this(context, null);
+        init();
     }
 
     protected ShadowView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs, 0);
+        this(context, attrs, 0);
+        init();
     }
 
     protected ShadowView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs, defStyle);
+        init();
     }
 
-    protected void init(AttributeSet attrs, int defStyle) {
+    protected void init() {
         setWillNotDraw(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
-
-        // Load attributes
-        final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadow, defStyle, 0);
-        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, DEFAULT_ATTR_SHAPE);
-        mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
-        mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
-        mZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
-        mZDepthDoAnimation = typedArray.getBoolean(R.styleable.ZDepthShadow_z_depth_doAnim, DEFAULT_ATTR_ZDEPTH_DO_ANIMATION);
-
-        setShape(mAttrShape);
-        setZDepth(mAttrZDepth);
-        setZDepthPadding(mAttrZDepthPadding);
-
-        typedArray.recycle();
     }
 
     protected void setZDepthDoAnimation(boolean doAnimation) {
@@ -112,11 +85,11 @@ public class ShadowView extends View {
 
     protected void setShape(int shape) {
         switch (shape) {
-            case SHAPE_RECT:
+            case ZDepthShadowLayout.SHAPE_RECT:
                 mShadow = new ShadowRect();
                 break;
 
-            case SHAPE_OVAL:
+            case ZDepthShadowLayout.SHAPE_OVAL:
                 mShadow = new ShadowOval();
                 break;
 

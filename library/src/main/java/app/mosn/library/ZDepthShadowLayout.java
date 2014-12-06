@@ -3,6 +3,7 @@ package app.mosn.library;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -10,8 +11,16 @@ import android.widget.FrameLayout;
 public class ZDepthShadowLayout extends FrameLayout {
     public static final String TAG = "ZDepthShadowLayout";
 
+    protected static final int DEFAULT_ATTR_SHAPE = 0;
+    protected static final int DEFAULT_ATTR_ZDEPTH = 1;
+    protected static final int DEFAULT_ATTR_ZDEPTH_PADDING = 5;
+    protected static final int DEFAULT_ATTR_ZDEPTH_ANIM_DURATION = 150;
+    protected static final boolean DEFAULT_ATTR_ZDEPTH_DO_ANIMATION = true;
+
+    protected static final int SHAPE_RECT = 0;
+    protected static final int SHAPE_OVAL = 1;
+
     protected ShadowView mShadowView;
-    protected int mShadowZDepthPadding;
 
     protected int mAttrShape;
     protected int mAttrZDepth;
@@ -35,13 +44,12 @@ public class ZDepthShadowLayout extends FrameLayout {
     protected void init(AttributeSet attrs, int defStyle) {
         setClipToPadding(false);
 
-        // Load attributes
         final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadow, defStyle, 0);
-        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, ShadowView.DEFAULT_ATTR_SHAPE);
-        mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, ShadowView.DEFAULT_ATTR_ZDEPTH);
-        mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, ShadowView.DEFAULT_ATTR_ZDEPTH_PADDING);
-        mAttrZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, ShadowView.DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
-        mAttrZDepthDoAnimation = typedArray.getBoolean(R.styleable.ZDepthShadow_z_depth_doAnim, ShadowView.DEFAULT_ATTR_ZDEPTH_DO_ANIMATION);
+        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, DEFAULT_ATTR_SHAPE);
+        mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
+        mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
+        mAttrZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
+        mAttrZDepthDoAnimation = typedArray.getBoolean(R.styleable.ZDepthShadow_z_depth_doAnim, DEFAULT_ATTR_ZDEPTH_DO_ANIMATION);
         typedArray.recycle();
     }
 
@@ -49,20 +57,16 @@ public class ZDepthShadowLayout extends FrameLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
 
-        if (getChildCount() != 0 && getChildAt(0) instanceof ShadowView) {
-            mShadowView = (ShadowView) getChildAt(0);
-        } else {
-            mShadowView = new ShadowView(getContext());
-            mShadowView.setShape(mAttrShape);
-            mShadowView.setZDepth(mAttrZDepth);
-            mShadowView.setZDepthPadding(mAttrZDepthPadding);
-            mShadowView.setZDepthAnimDuration(mAttrZDepthAnimDuration);
-            mShadowView.setZDepthDoAnimation(mAttrZDepthDoAnimation);
-            addView(mShadowView, 0);
-        }
+        mShadowView = new ShadowView(getContext());
+        mShadowView.setShape(mAttrShape);
+        mShadowView.setZDepth(mAttrZDepth);
+        mShadowView.setZDepthPadding(mAttrZDepthPadding);
+        mShadowView.setZDepthAnimDuration(mAttrZDepthAnimDuration);
+        mShadowView.setZDepthDoAnimation(mAttrZDepthDoAnimation);
+        addView(mShadowView, 0);
 
-        mShadowZDepthPadding = mShadowView.getZDepthPadding();
-        setPadding(mShadowZDepthPadding, mShadowZDepthPadding, mShadowZDepthPadding, mShadowZDepthPadding);
+        int padding = mShadowView.getZDepthPadding();
+        setPadding(padding, padding, padding, padding);
     }
 
     @Override
@@ -81,8 +85,9 @@ public class ZDepthShadowLayout extends FrameLayout {
         }
 
         // その他の View のうち最も大きいサイズに padding を足して measure を呼び出す
-        maxChildViewWidth  += mShadowZDepthPadding * 2; // 左右の padding を加算する
-        maxChildViewHeight += mShadowZDepthPadding * 2; // 上下の padding を加算する
+        int padding = mShadowView.getZDepthPadding();
+        maxChildViewWidth  += padding * 2; // 左右の padding を加算する
+        maxChildViewHeight += padding * 2; // 上下の padding を加算する
         mShadowView.measure(
                 MeasureSpec.makeMeasureSpec(maxChildViewWidth,  MeasureSpec.EXACTLY),
                 MeasureSpec.makeMeasureSpec(maxChildViewHeight, MeasureSpec.EXACTLY)

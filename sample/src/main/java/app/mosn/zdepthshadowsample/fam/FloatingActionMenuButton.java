@@ -27,7 +27,7 @@ public class FloatingActionMenuButton extends ZDepthShadowLayout {
     protected void init(AttributeSet attrs, int defStyle) {
         super.init(attrs, defStyle);
 
-        mAttrShape = ShadowView.SHAPE_OVAL;
+        mAttrShape = SHAPE_OVAL;
         mAttrZDepth = 2;
         mAttrZDepthPadding = 3;
         mAttrZDepthDoAnimation = true;

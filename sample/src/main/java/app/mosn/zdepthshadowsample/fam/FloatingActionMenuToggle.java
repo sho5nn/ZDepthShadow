@@ -16,7 +16,7 @@ public class FloatingActionMenuToggle extends FloatingActionMenuButton {
         super.init(attrs, defStyle);
 
         mButtonSizeDp = 56;
-        mAttrShape = ShadowView.SHAPE_OVAL;
+        mAttrShape = SHAPE_OVAL;
         mAttrZDepth = 2;
         mAttrZDepthPadding = 4;
         mAttrZDepthDoAnimation = true;
