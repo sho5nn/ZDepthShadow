@@ -182,12 +182,12 @@ public class ShadowView extends View {
         float newBlurBottomShadow    = zDepth.getBlurBottomShadowPx(getContext());
 
         if (!mZDepthDoAnimation) {
-            mZDepthParam.mAlphaTopShadow = newAlphaTopShadow;
-            mZDepthParam.mAlphaBottomShadow = newAlphaBottomShadow;
-            mZDepthParam.mOffsetYTopShadowPx       = newOffsetYTopShadow;
-            mZDepthParam.mOffsetYBottomShadowPx    = newOffsetYBottomShadow;
-            mZDepthParam.mBlurTopShadowPx = newBlurTopShadow;
-            mZDepthParam.mBlurBottomShadowPx = newBlurBottomShadow;
+            mZDepthParam.mAlphaTopShadow        = newAlphaTopShadow;
+            mZDepthParam.mAlphaBottomShadow     = newAlphaBottomShadow;
+            mZDepthParam.mOffsetYTopShadowPx    = newOffsetYTopShadow;
+            mZDepthParam.mOffsetYBottomShadowPx = newOffsetYBottomShadow;
+            mZDepthParam.mBlurTopShadowPx       = newBlurTopShadow;
+            mZDepthParam.mBlurBottomShadowPx    = newBlurBottomShadow;
 
             mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding);
             invalidate();
