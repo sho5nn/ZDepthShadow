@@ -56,8 +56,8 @@ public enum ZDepth {
             6.0f
     );
 
-    public final int mColorAlphaTopShadow; // alpha to black
-    public final int mColorAlphaBottomShadow; // alpha to black
+    public final int mAlphaTopShadow; // alpha to black
+    public final int mAlphaBottomShadow; // alpha to black
 
     public final float mOffsetYTopShadow; // dp
     public final float mOffsetYBottomShadow; // dp
@@ -65,21 +65,21 @@ public enum ZDepth {
     public final float mBlurTopShadow; // dp
     public final float mBlurBottomShadow; // dp
 
-    private ZDepth(int colorAlphaTopShadow, int colorAlphaBottomShadow, float offsetYTopShadow, float offsetYBottomShadow, float blurTopShadow, float blurBottomShadow) {
-        mColorAlphaTopShadow = colorAlphaTopShadow;
-        mColorAlphaBottomShadow = colorAlphaBottomShadow;
+    private ZDepth(int alphaTopShadow, int alphaBottomShadow, float offsetYTopShadow, float offsetYBottomShadow, float blurTopShadow, float blurBottomShadow) {
+        mAlphaTopShadow = alphaTopShadow;
+        mAlphaBottomShadow = alphaBottomShadow;
         mOffsetYTopShadow = offsetYTopShadow;
         mOffsetYBottomShadow = offsetYBottomShadow;
         mBlurTopShadow = blurTopShadow;
         mBlurBottomShadow = blurBottomShadow;
     }
 
-    public int getColorAlphaTopShadow() {
-        return mColorAlphaTopShadow;
+    public int getAlphaTopShadow() {
+        return mAlphaTopShadow;
     }
 
-    public int getColorAlphaBottomShadow() {
-        return mColorAlphaBottomShadow;
+    public int getAlphaBottomShadow() {
+        return mAlphaBottomShadow;
     }
 
     public float getOffsetYTopShadowPx(Context context) {

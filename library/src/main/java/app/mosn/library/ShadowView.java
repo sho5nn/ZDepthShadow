@@ -3,7 +3,6 @@ package app.mosn.library;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -175,31 +174,51 @@ public class ShadowView extends View {
 
     protected void changeZDepth(ZDepth zDepth) {
 
+        int   newAlphaTopShadow      = zDepth.getAlphaTopShadow();
+        int   newAlphaBottomShadow   = zDepth.getAlphaBottomShadow();
+        float newOffsetYTopShadow    = zDepth.getOffsetYTopShadowPx(getContext());
+        float newOffsetYBottomShadow = zDepth.getOffsetYBottomShadowPx(getContext());
+        float newBlurTopShadow       = zDepth.getBlurTopShadowPx(getContext());
+        float newBlurBottomShadow    = zDepth.getBlurBottomShadowPx(getContext());
+
         if (!mZDepthDoAnimation) {
-            mZDepthParam.mColorAlphaTopShadow = zDepth.getColorAlphaTopShadow();
-            mZDepthParam.mColorAlphaBottomShadow = zDepth.getColorAlphaBottomShadow();
-            mZDepthParam.mOffsetYTopShadowPx = zDepth.getOffsetYTopShadowPx(getContext());
-            mZDepthParam.mOffsetYBottomShadowPx = zDepth.getOffsetYBottomShadowPx(getContext());
-            mZDepthParam.mBlurRadiusTopShadowPx = zDepth.getBlurTopShadowPx(getContext());
-            mZDepthParam.mBlurRadiusBottomShadowPx = zDepth.getBlurBottomShadowPx(getContext());
+            mZDepthParam.mAlphaTopShadow = newAlphaTopShadow;
+            mZDepthParam.mAlphaBottomShadow = newAlphaBottomShadow;
+            mZDepthParam.mOffsetYTopShadowPx       = newOffsetYTopShadow;
+            mZDepthParam.mOffsetYBottomShadowPx    = newOffsetYBottomShadow;
+            mZDepthParam.mBlurTopShadowPx = newBlurTopShadow;
+            mZDepthParam.mBlurBottomShadowPx = newBlurBottomShadow;
 
             mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding);
             invalidate();
             return;
         }
 
-        PropertyValuesHolder alphaTopShadowHolder     = PropertyValuesHolder
-                .ofInt(ANIM_PROPERTY_ALPHA_TOP_SHADOW, mZDepthParam.mColorAlphaTopShadow, zDepth.getColorAlphaTopShadow());
-        PropertyValuesHolder alphaBottomShadowHolder  = PropertyValuesHolder
-                .ofInt(ANIM_PROPERTY_ALPHA_BOTTOM_SHADOW, mZDepthParam.mColorAlphaBottomShadow, zDepth.getColorAlphaBottomShadow());
-        PropertyValuesHolder offsetTopShadowHolder    = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_OFFSET_TOP_SHADOW, mZDepthParam.mOffsetYTopShadowPx, zDepth.getOffsetYTopShadowPx(getContext()));
-        PropertyValuesHolder offsetBottomShadowHolder = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_OFFSET_BOTTOM_SHADOW, mZDepthParam.mOffsetYBottomShadowPx, zDepth.getOffsetYBottomShadowPx(getContext()));
-        PropertyValuesHolder blurTopShadowHolder      = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_BLUR_TOP_SHADOW, mZDepthParam.mBlurRadiusTopShadowPx, zDepth.getBlurTopShadowPx(getContext()));
-        PropertyValuesHolder blurBottomShadowHolder   = PropertyValuesHolder
-                .ofFloat(ANIM_PROPERTY_BLUR_BOTTOM_SHADOW, mZDepthParam.mBlurRadiusBottomShadowPx, zDepth.getBlurBottomShadowPx(getContext()));
+        int   nowAlphaTopShadow      = mZDepthParam.mAlphaTopShadow;
+        int   nowAlphaBottomShadow   = mZDepthParam.mAlphaBottomShadow;
+        float nowOffsetYTopShadow    = mZDepthParam.mOffsetYTopShadowPx;
+        float nowOffsetYBottomShadow = mZDepthParam.mOffsetYBottomShadowPx;
+        float nowBlurTopShadow       = mZDepthParam.mBlurTopShadowPx;
+        float nowBlurBottomShadow    = mZDepthParam.mBlurBottomShadowPx;
+
+        PropertyValuesHolder alphaTopShadowHolder     = PropertyValuesHolder.ofInt(ANIM_PROPERTY_ALPHA_TOP_SHADOW,
+                nowAlphaTopShadow,
+                newAlphaTopShadow);
+        PropertyValuesHolder alphaBottomShadowHolder  = PropertyValuesHolder.ofInt(ANIM_PROPERTY_ALPHA_BOTTOM_SHADOW,
+                nowAlphaBottomShadow,
+                newAlphaBottomShadow);
+        PropertyValuesHolder offsetTopShadowHolder    = PropertyValuesHolder.ofFloat(ANIM_PROPERTY_OFFSET_TOP_SHADOW,
+                nowOffsetYTopShadow,
+                newOffsetYTopShadow);
+        PropertyValuesHolder offsetBottomShadowHolder = PropertyValuesHolder.ofFloat(ANIM_PROPERTY_OFFSET_BOTTOM_SHADOW,
+                nowOffsetYBottomShadow,
+                newOffsetYBottomShadow);
+        PropertyValuesHolder blurTopShadowHolder      = PropertyValuesHolder.ofFloat(ANIM_PROPERTY_BLUR_TOP_SHADOW,
+                nowBlurTopShadow,
+                newBlurTopShadow);
+        PropertyValuesHolder blurBottomShadowHolder   = PropertyValuesHolder.ofFloat(ANIM_PROPERTY_BLUR_BOTTOM_SHADOW,
+                nowBlurBottomShadow,
+                newBlurBottomShadow);
 
         ValueAnimator anim = ValueAnimator
                 .ofPropertyValuesHolder(
@@ -221,12 +240,12 @@ public class ShadowView extends View {
                 float blurTopShadow      = (Float) animation.getAnimatedValue(ANIM_PROPERTY_BLUR_TOP_SHADOW);
                 float blurBottomShadow   = (Float) animation.getAnimatedValue(ANIM_PROPERTY_BLUR_BOTTOM_SHADOW);
 
-                mZDepthParam.mColorAlphaTopShadow = alphaTopShadow;
-                mZDepthParam.mColorAlphaBottomShadow = alphaBottomShadow;
+                mZDepthParam.mAlphaTopShadow = alphaTopShadow;
+                mZDepthParam.mAlphaBottomShadow = alphaBottomShadow;
                 mZDepthParam.mOffsetYTopShadowPx = offsetTopShadow;
                 mZDepthParam.mOffsetYBottomShadowPx = offsetBottomShadow;
-                mZDepthParam.mBlurRadiusTopShadowPx = blurTopShadow;
-                mZDepthParam.mBlurRadiusBottomShadowPx = blurBottomShadow;
+                mZDepthParam.mBlurTopShadowPx = blurTopShadow;
+                mZDepthParam.mBlurBottomShadowPx = blurBottomShadow;
 
                 mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding); 
 

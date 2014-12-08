@@ -36,16 +36,16 @@ public class ShadowRect implements Shadow {
         mRectBottomShadow.right  = right;
         mRectBottomShadow.bottom = (int) (bottom + param.mOffsetYBottomShadowPx);
 
-        mTopShadow.getPaint().setColor(Color.argb(param.mColorAlphaTopShadow, 0, 0, 0));
-        if (0 < param.mBlurRadiusTopShadowPx) {
-            mTopShadow.getPaint().setMaskFilter(new BlurMaskFilter(param.mBlurRadiusTopShadowPx, BlurMaskFilter.Blur.NORMAL));
+        mTopShadow.getPaint().setColor(Color.argb(param.mAlphaTopShadow, 0, 0, 0));
+        if (0 < param.mBlurTopShadowPx) {
+            mTopShadow.getPaint().setMaskFilter(new BlurMaskFilter(param.mBlurTopShadowPx, BlurMaskFilter.Blur.NORMAL));
         } else {
             mTopShadow.getPaint().setMaskFilter(null);
         }
 
-        mBottomShadow.getPaint().setColor(Color.argb(param.mColorAlphaBottomShadow, 0, 0, 0));
-        if (0 < param.mBlurRadiusBottomShadowPx) {
-            mBottomShadow.getPaint().setMaskFilter(new BlurMaskFilter(param.mBlurRadiusBottomShadowPx, BlurMaskFilter.Blur.NORMAL));
+        mBottomShadow.getPaint().setColor(Color.argb(param.mAlphaBottomShadow, 0, 0, 0));
+        if (0 < param.mBlurBottomShadowPx) {
+            mBottomShadow.getPaint().setMaskFilter(new BlurMaskFilter(param.mBlurBottomShadowPx, BlurMaskFilter.Blur.NORMAL));
         } else {
             mBottomShadow.getPaint().setMaskFilter(null);
         }
