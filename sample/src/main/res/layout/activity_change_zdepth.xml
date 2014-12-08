@@ -111,4 +111,25 @@
             android:text="ZDepth 5"/>
     </LinearLayout>
 
+    <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
+        android:id="@+id/zDepthShadowLayout_toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        shadow:z_depth="z_depth1"
+        shadow:z_depth_shape="rect"
+        shadow:z_depth_paddingLeft="z_depth0"
+        shadow:z_depth_paddingTop="z_depth0"
+        shadow:z_depth_paddingRight="z_depth0"
+        shadow:z_depth_paddingBottom="z_depth5">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+
+    </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
+
 </RelativeLayout>

@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
         android:gravity="center">
 
         <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
@@ -28,13 +27,15 @@
         </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
         <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth1"
+            shadow:z_depth_paddingLeft="z_depth0"
+            shadow:z_depth_paddingRight="z_depth0"
             shadow:z_depth_shape="rect">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 android:text="ZDepth 1"

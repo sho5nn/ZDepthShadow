@@ -27,7 +27,10 @@ public class ShadowView extends View {
 
     protected Shadow mShadow;
     protected ZDepthParam mZDepthParam;
-    protected int mZDepthPadding;
+    protected int mZDepthPaddingLeft;
+    protected int mZDepthPaddingTop;
+    protected int mZDepthPaddingRight;
+    protected int mZDepthPaddingBottom;
     protected long mZDepthAnimDuration;
     protected boolean mZDepthDoAnimation;
 
@@ -61,12 +64,27 @@ public class ShadowView extends View {
         mZDepthAnimDuration = duration;
     }
 
-    protected void setZDepthPadding(int zDepthPaddingValue) {
-        ZDepth zDepth = getZDepthWithAttributeValue(zDepthPaddingValue);
-        setZDepthPadding(zDepth);
+    protected void setZDepthPaddingLeft(int zDepthPaddingLeftValue) {
+        ZDepth zDepth = getZDepthWithAttributeValue(zDepthPaddingLeftValue);
+        mZDepthPaddingLeft = measureZDepthPadding(zDepth);
     }
 
-    protected void setZDepthPadding(ZDepth zDepth) {
+    protected void setZDepthPaddingTop(int zDepthPaddingTopValue) {
+        ZDepth zDepth = getZDepthWithAttributeValue(zDepthPaddingTopValue);
+        mZDepthPaddingTop = measureZDepthPadding(zDepth);
+    }
+
+    protected void setZDepthPaddingRight(int zDepthPaddingRightValue) {
+        ZDepth zDepth = getZDepthWithAttributeValue(zDepthPaddingRightValue);
+        mZDepthPaddingRight = measureZDepthPadding(zDepth);
+    }
+
+    protected void setZDepthPaddingBottom(int zDepthPaddingBottomValue) {
+        ZDepth zDepth = getZDepthWithAttributeValue(zDepthPaddingBottomValue);
+        mZDepthPaddingBottom = measureZDepthPadding(zDepth);
+    }
+
+    protected int measureZDepthPadding(ZDepth zDepth) {
         float maxAboveBlurRadius = zDepth.getBlurTopShadowPx(getContext());
         float maxAboveOffset     = zDepth.getOffsetYTopShadowPx(getContext());
         float maxBelowBlurRadius = zDepth.getBlurBottomShadowPx(getContext());
@@ -75,11 +93,23 @@ public class ShadowView extends View {
         float maxAboveSize = maxAboveBlurRadius + maxAboveOffset;
         float maxBelowSize = maxBelowBlurRadius + maxBelowOffset;
 
-        mZDepthPadding = (int) Math.max(maxAboveSize, maxBelowSize);
+        return (int) Math.max(maxAboveSize, maxBelowSize);
     }
 
-    protected int getZDepthPadding() {
-        return mZDepthPadding;
+    protected int getZDepthPaddingLeft() {
+        return mZDepthPaddingLeft;
+    }
+
+    protected int getZDepthPaddingTop() {
+        return mZDepthPaddingTop;
+    }
+
+    protected int getZDepthPaddingRight() {
+        return mZDepthPaddingRight;
+    }
+
+    protected int getZDepthPaddingBottom() {
+        return mZDepthPaddingBottom;
     }
 
     protected void setShape(int shape) {
@@ -160,10 +190,10 @@ public class ShadowView extends View {
         int parentHeight = (bottom - top);
 
         mShadow.setParameter(mZDepthParam,
-                mZDepthPadding,
-                mZDepthPadding,
-                parentWidth  - mZDepthPadding,
-                parentHeight - mZDepthPadding);
+                mZDepthPaddingLeft,
+                mZDepthPaddingTop,
+                parentWidth  - mZDepthPaddingRight,
+                parentHeight - mZDepthPaddingBottom);
     }
 
     @Override
@@ -189,7 +219,11 @@ public class ShadowView extends View {
             mZDepthParam.mBlurTopShadowPx       = newBlurTopShadow;
             mZDepthParam.mBlurBottomShadowPx    = newBlurBottomShadow;
 
-            mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding);
+            mShadow.setParameter(mZDepthParam,
+                    mZDepthPaddingLeft,
+                    mZDepthPaddingTop,
+                    getWidth() - mZDepthPaddingRight,
+                    getHeight() - mZDepthPaddingBottom);
             invalidate();
             return;
         }
@@ -247,7 +281,11 @@ public class ShadowView extends View {
                 mZDepthParam.mBlurTopShadowPx = blurTopShadow;
                 mZDepthParam.mBlurBottomShadowPx = blurBottomShadow;
 
-                mShadow.setParameter(mZDepthParam, mZDepthPadding, mZDepthPadding, getWidth() - mZDepthPadding, getHeight() - mZDepthPadding); 
+                mShadow.setParameter(mZDepthParam,
+                        mZDepthPaddingLeft,
+                        mZDepthPaddingTop,
+                        getWidth() - mZDepthPaddingRight,
+                        getHeight() - mZDepthPaddingBottom);
 
                 invalidate();
              }

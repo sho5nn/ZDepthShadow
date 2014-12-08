@@ -28,7 +28,10 @@ public class FloatingActionMenuButton extends ZDepthShadowLayout {
 
         mAttrShape = SHAPE_OVAL;
         mAttrZDepth = 2;
-        mAttrZDepthPadding = 3;
+        mAttrZDepthPaddingLeft = 3;
+        mAttrZDepthPaddingTop = 3;
+        mAttrZDepthPaddingRight = 3;
+        mAttrZDepthPaddingBottom = 3;
         mAttrZDepthDoAnimation = true;
         mAttrZDepthAnimDuration = 150;
     }

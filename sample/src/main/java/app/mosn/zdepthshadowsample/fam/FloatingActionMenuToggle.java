@@ -16,7 +16,10 @@ public class FloatingActionMenuToggle extends FloatingActionMenuButton {
         mButtonSizeDp = 56;
         mAttrShape = SHAPE_OVAL;
         mAttrZDepth = 2;
-        mAttrZDepthPadding = 4;
+        mAttrZDepthPaddingLeft = 4;
+        mAttrZDepthPaddingTop = 4;
+        mAttrZDepthPaddingRight = 4;
+        mAttrZDepthPaddingBottom = 4;
         mAttrZDepthDoAnimation = true;
         mAttrZDepthAnimDuration = 150;
     }
