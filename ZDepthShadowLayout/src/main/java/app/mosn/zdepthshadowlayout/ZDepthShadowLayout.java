@@ -1,9 +1,8 @@
-package app.mosn.library;
+package app.mosn.zdepthshadowlayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -44,12 +43,12 @@ public class ZDepthShadowLayout extends FrameLayout {
     protected void init(AttributeSet attrs, int defStyle) {
         setClipToPadding(false);
 
-        final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadow, defStyle, 0);
-        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_shape, DEFAULT_ATTR_SHAPE);
-        mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadow_z_depth, DEFAULT_ATTR_ZDEPTH);
-        mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
-        mAttrZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadow_z_depth_animDuration, DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
-        mAttrZDepthDoAnimation = typedArray.getBoolean(R.styleable.ZDepthShadow_z_depth_doAnim, DEFAULT_ATTR_ZDEPTH_DO_ANIMATION);
+        final TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ZDepthShadowLayout, defStyle, 0);
+        mAttrShape = typedArray.getInt(R.styleable.ZDepthShadowLayout_z_depth_shape, DEFAULT_ATTR_SHAPE);
+        mAttrZDepth = typedArray.getInt(R.styleable.ZDepthShadowLayout_z_depth, DEFAULT_ATTR_ZDEPTH);
+        mAttrZDepthPadding = typedArray.getInt(R.styleable.ZDepthShadowLayout_z_depth_padding, DEFAULT_ATTR_ZDEPTH_PADDING);
+        mAttrZDepthAnimDuration = typedArray.getInt(R.styleable.ZDepthShadowLayout_z_depth_animDuration, DEFAULT_ATTR_ZDEPTH_ANIM_DURATION);
+        mAttrZDepthDoAnimation = typedArray.getBoolean(R.styleable.ZDepthShadowLayout_z_depth_doAnim, DEFAULT_ATTR_ZDEPTH_DO_ANIMATION);
         typedArray.recycle();
     }
 

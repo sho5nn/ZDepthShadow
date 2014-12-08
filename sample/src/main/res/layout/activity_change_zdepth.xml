@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <app.mosn.library.ZDepthShadowLayout
+    <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
         android:id="@+id/zDepthShadowLayout_rect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:text="Change ZDepth"
             android:background="@android:color/white"/>
 
-    </app.mosn.library.ZDepthShadowLayout>
+    </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
     <View
         android:id="@+id/view_dummy"
@@ -30,7 +30,7 @@
         android:layout_height="1dp"
         android:layout_centerInParent="true"/>
 
-    <app.mosn.library.ZDepthShadowLayout
+    <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
         android:id="@+id/zDepthShadowLayout_oval"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             android:gravity="center"
             android:background="@drawable/drawable_circle"/>
 
-    </app.mosn.library.ZDepthShadowLayout>
+    </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_changeZDepthButtons_1"

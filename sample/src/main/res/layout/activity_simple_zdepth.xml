@@ -12,7 +12,7 @@
         android:padding="16dp"
         android:gravity="center">
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth0"
@@ -25,9 +25,9 @@
                 android:text="ZDepth 0"
                 android:background="@android:color/white"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth1"
@@ -40,9 +40,9 @@
                 android:text="ZDepth 1"
                 android:background="@android:color/white"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth2"
@@ -55,9 +55,9 @@
                 android:text="ZDepth 2"
                 android:background="@android:color/white"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth3"
@@ -70,9 +70,9 @@
                 android:text="ZDepth 3"
                 android:background="@android:color/white"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth4"
@@ -85,9 +85,9 @@
                 android:text="ZDepth 4"
                 android:background="@android:color/white"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth5"
@@ -100,9 +100,9 @@
                 android:text="ZDepth 5"
                 android:background="@android:color/white"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth0"
@@ -116,9 +116,9 @@
                 android:gravity="center"
                 android:background="@drawable/drawable_circle"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth1"
@@ -132,9 +132,9 @@
                 android:gravity="center"
                 android:background="@drawable/drawable_circle"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth2"
@@ -148,9 +148,9 @@
                 android:gravity="center"
                 android:background="@drawable/drawable_circle"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth3"
@@ -164,9 +164,9 @@
                 android:gravity="center"
                 android:background="@drawable/drawable_circle"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth4"
@@ -180,9 +180,9 @@
                 android:gravity="center"
                 android:background="@drawable/drawable_circle"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth5"
@@ -196,7 +196,7 @@
                 android:gravity="center"
                 android:background="@drawable/drawable_circle"/>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
     </LinearLayout>
 

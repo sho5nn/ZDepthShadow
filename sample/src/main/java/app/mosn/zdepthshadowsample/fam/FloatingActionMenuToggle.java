@@ -3,8 +3,6 @@ package app.mosn.zdepthshadowsample.fam;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import app.mosn.library.ShadowView;
-
 public class FloatingActionMenuToggle extends FloatingActionMenuButton {
 
     public FloatingActionMenuToggle(Context context) {

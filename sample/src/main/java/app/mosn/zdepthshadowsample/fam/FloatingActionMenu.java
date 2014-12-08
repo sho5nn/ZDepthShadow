@@ -8,7 +8,7 @@ import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 
-import app.mosn.library.ZDepth;
+import app.mosn.zdepthshadowlayout.ZDepth;
 import app.mosn.zdepthshadowsample.R;
 
 public class FloatingActionMenu extends FrameLayout {

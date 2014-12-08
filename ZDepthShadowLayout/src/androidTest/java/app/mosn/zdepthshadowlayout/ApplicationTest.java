@@ -1,4 +1,4 @@
-package app.mosn.library;
+package app.mosn.zdepthshadowlayout;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

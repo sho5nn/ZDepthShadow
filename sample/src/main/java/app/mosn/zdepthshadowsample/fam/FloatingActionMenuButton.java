@@ -7,9 +7,8 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.ImageView;
 
-import app.mosn.library.ShadowView;
-import app.mosn.library.ZDepthShadowLayout;
-import app.mosn.library.utils.DisplayUtils;
+import app.mosn.zdepthshadowlayout.ZDepthShadowLayout;
+import app.mosn.zdepthshadowlayout.utils.DisplayUtils;
 import app.mosn.zdepthshadowsample.R;
 
 public class FloatingActionMenuButton extends ZDepthShadowLayout {

@@ -3,8 +3,8 @@ package app.mosn.zdepthshadowsample;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
-import app.mosn.library.ZDepth;
-import app.mosn.library.ZDepthShadowLayout;
+import app.mosn.zdepthshadowlayout.ZDepth;
+import app.mosn.zdepthshadowlayout.ZDepthShadowLayout;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;

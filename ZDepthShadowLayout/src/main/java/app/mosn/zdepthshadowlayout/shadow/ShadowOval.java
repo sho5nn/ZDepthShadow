@@ -1,40 +1,40 @@
-package app.mosn.library.shadow;
+package app.mosn.zdepthshadowlayout.shadow;
 
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
+import android.graphics.drawable.shapes.OvalShape;
 
-import app.mosn.library.ZDepthParam;
+import app.mosn.zdepthshadowlayout.ZDepthParam;
 
-public class ShadowRect implements Shadow {
+public class ShadowOval implements Shadow {
 
     private ShapeDrawable mTopShadow;
     private ShapeDrawable mBottomShadow;
 
-    private Rect mRectTopShadow;
-    private Rect mRectBottomShadow;
+    private RectF mRectTopShadow;
+    private RectF mRectBottomShadow;
 
-    public ShadowRect() {
-        mRectTopShadow = new Rect();
-        mRectBottomShadow = new Rect();
-        mTopShadow = new ShapeDrawable(new RectShape());
-        mBottomShadow = new ShapeDrawable(new RectShape());
+    public ShadowOval() {
+        mRectTopShadow = new RectF();
+        mRectBottomShadow = new RectF();
+        mTopShadow = new ShapeDrawable(new OvalShape());
+        mBottomShadow = new ShapeDrawable(new OvalShape());
     }
 
     @Override
     public void setParameter(ZDepthParam param, int left, int top, int right, int bottom) {
         mRectTopShadow.left   = left;
-        mRectTopShadow.top    = (int) (top    + param.mOffsetYTopShadowPx);
+        mRectTopShadow.top    = top    + param.mOffsetYTopShadowPx;
         mRectTopShadow.right  = right;
-        mRectTopShadow.bottom = (int) (bottom + param.mOffsetYTopShadowPx);
+        mRectTopShadow.bottom = bottom + param.mOffsetYTopShadowPx;
 
         mRectBottomShadow.left   = left;
-        mRectBottomShadow.top    = (int) (top    + param.mOffsetYBottomShadowPx);
+        mRectBottomShadow.top    = top    + param.mOffsetYBottomShadowPx;
         mRectBottomShadow.right  = right;
-        mRectBottomShadow.bottom = (int) (bottom + param.mOffsetYBottomShadowPx);
+        mRectBottomShadow.bottom = bottom + param.mOffsetYBottomShadowPx;
 
         mTopShadow.getPaint().setColor(Color.argb(param.mAlphaTopShadow, 0, 0, 0));
         if (0 < param.mBlurTopShadowPx) {
@@ -53,7 +53,7 @@ public class ShadowRect implements Shadow {
 
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawRect(mRectBottomShadow, mBottomShadow.getPaint());
-        canvas.drawRect(mRectTopShadow, mTopShadow.getPaint());
+        canvas.drawOval(mRectBottomShadow, mBottomShadow.getPaint());
+        canvas.drawOval(mRectTopShadow, mTopShadow.getPaint());
     }
 }

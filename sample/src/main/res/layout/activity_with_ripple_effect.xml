@@ -13,7 +13,7 @@
         android:padding="16dp"
         android:gravity="center">
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth0"
@@ -33,9 +33,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth1"
@@ -55,9 +55,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth2"
@@ -77,9 +77,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth3"
@@ -99,9 +99,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth4"
@@ -121,9 +121,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth5"
@@ -143,9 +143,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth0"
@@ -167,9 +167,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth1"
@@ -191,9 +191,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth2"
@@ -215,9 +215,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth3"
@@ -239,9 +239,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth4"
@@ -263,9 +263,9 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
-        <app.mosn.library.ZDepthShadowLayout
+        <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             shadow:z_depth="z_depth5"
@@ -287,7 +287,7 @@
 
             </com.andexert.library.RippleView>
 
-        </app.mosn.library.ZDepthShadowLayout>
+        </app.mosn.zdepthshadowlayout.ZDepthShadowLayout>
 
     </LinearLayout>
 
