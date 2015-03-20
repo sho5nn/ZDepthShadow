@@ -5,15 +5,15 @@ Android - draw z-depth shadow of MaterialDesign
 
 ### Demo
 
-![ZDepthShadowLayout GIF](https://github.com/ShogoMizumoto/ZDepthShadowLayout/blob/master/demo.gif)
+![ZDepthShadowLayout GIF](./blobs/demo.gif)
 
 ### Screen Capture
 
-![ZDepthShadowLayout GIF](https://github.com/ShogoMizumoto/ZDepthShadowLayout/blob/master/screen_capture.png)
+![ZDepthShadowLayout GIF](./blobs/screen_capture.png)
 
 ### What is ZDepth??
 
-![ZDepthShadowLayout GIF](https://github.com/ShogoMizumoto/ZDepthShadowLayout/blob/master/shadow_zdepth.png)
+![ZDepthShadowLayout GIF](./blobs/shadow_zdepth.png)
 
 ### MIT License
 
