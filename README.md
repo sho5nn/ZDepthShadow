@@ -11,6 +11,26 @@ Android - draw z-depth shadow of MaterialDesign
 
 ![ZDepthShadowLayout GIF](./blobs/screen_capture.png)
 
+### HowTo Use
+
+```
+apply plugin: 'com.android.application'
+
+repositories {
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+android {
+    // something code...
+}
+
+dependencies {
+    compile 'com.github.ShogoMizumoto:ZDepthShadowLayout:1.0.4'
+}
+```
+
 ### What is ZDepth??
 
 ![ZDepthShadowLayout GIF](./blobs/shadow_zdepth.png)
