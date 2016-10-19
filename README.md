@@ -13,7 +13,7 @@ Android - draw z-depth shadow of MaterialDesign
 
 ## Download
 
-```
+```groovy
 apply plugin: 'com.android.application'
 
 repositories {
@@ -33,7 +33,7 @@ dependencies {
 
 ## How to Use
 
-```
+```xml
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:shadow="http://schemas.android.com/apk/res-auto"
@@ -62,7 +62,7 @@ dependencies {
 
 #### configuration
 
-```
+```xml
 <app.mosn.zdepthshadowlayout.ZDepthShadowLayout
     shadow:z_depth="z_depth1"         // enum
     shadow:z_depth_shape="rect"       // enum
@@ -74,7 +74,7 @@ dependencies {
 
 #### attrs.xml
 
-```
+```xml
 <resources>
     <declare-styleable name="ZDepthShadowLayout">
         <attr name="z_depth" format="enum">
